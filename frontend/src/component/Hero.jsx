@@ -1,46 +1,45 @@
 import React from "react";
- import { Swiper, SwiperSlide } from "swiper/react";
- import { Autoplay, EffectFade } from "swiper/modules";
- import "swiper/css";
- import "swiper/css/effect-fade";
- 
- const sliderImages = [
-   "https://cdn.fordhamram.com/wp-content/uploads/Udemy-Accredited-Should-I-Put-It-On-My-Resume.jpeg",
-   "https://travis.media/images/2023/03/udemy-article-thumbnail.jpg",
-   "https://miro.medium.com/v2/resize:fit:1400/1*tDvPpTA8Jw5P_B5xV8gsjw.jpeg",
- ];
- 
- const Hero = () => (
-   <div className="relative w-full h-[350px] md:h-[500px] overflow-hidden">
-     <Swiper
-       modules={[Autoplay, EffectFade]}
-       effect="fade"
-       autoplay={{ delay: 4000 }}
-       loop={true}
-       className="absolute inset-0 z-0"
-     >
-       {sliderImages.map((img, index) => (
-         <SwiperSlide key={index}>
-           <img src={img} alt={`slide-${index}`} className="w-full h-full object-cover" />
-         </SwiperSlide>
-       ))}
-     </Swiper>
-     <div className="absolute inset-0  bg-opacity-50 z-10"></div>
-     <div className="relative z-20 flex flex-col justify-center items-center text-center h-full px-4 text-white">
-       <h2 className="text-3xl md:text-5xl font-bold mb-4">Learn anything, anytime, anywhere</h2>
-       <p className="text-base md:text-lg text-gray-200 mb-6">
-         Thousands of courses from top instructors
-       </p>
-       <input
-         type="text"
-         placeholder="Search for courses..."
-         className="px-4 py-2 rounded w-4/5 md:w-1/3 text-black mb-4"
-       />
-       <button className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold px-6 py-2 rounded">
-         Explore Courses
-       </button>
-     </div>
-   </div>
- );
- 
- export default Hero;
+
+const Hero = () => {
+  return (
+    <div className="relative bg-cover bg-center h-[500px] bg-fixed" style={{ backgroundImage: "url('https://cdn.fordhamram.com/wp-content/uploads/Udemy-Accredited-Should-I-Put-It-On-My-Resume.jpeg'), url('https://wallpapers.com/images/hd/education-pictures-gwhjen78gja9sel9.jpg')" }}>
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <div className="relative flex items-center justify-center h-full text-center text-white p-4">
+        <div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Learn Anything, Anytime</h1>
+          <form className="flex justify-center items-center space-x-4">
+            <input
+              type="text"
+              placeholder="Search for courses"
+              className="px-4 py-2 border-2 border-white rounded-l-full w-80 md:w-96 text-white"
+            />
+            <button
+              type="submit"
+              className="px-6 py-2 rounded-r-full bg-yellow-500 text-white font-semibold"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+      </div>
+
+      {/* Keyframe Animation for Scrolling Background */}
+      <style>{`
+        @keyframes scrollBackground {
+          0% {
+            background-position: 0 0, 50% 0, 100% 0;
+          }
+          100% {
+            background-position: 100% 0, 150% 0, 200% 0;
+          }
+        }
+
+        .bg-cover {
+          animation: scrollBackground 30s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default Hero;
