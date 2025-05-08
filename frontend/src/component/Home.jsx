@@ -6,6 +6,7 @@ import React from "react";
  import GoalsSection from "./GoalsSection";
  import PricingPlans from "./PricingPlans";
  import Testimonials from "./Testimonials";
+import Footer from "./Footer";
  
  const careerData = [
    {
@@ -79,6 +80,7 @@ import React from "react";
        {/* Pricing Plans Section */}
        <PricingPlans />
        <Testimonials/>
+       <Footer/>
  
      </div>
    );
